@@ -1,0 +1,42 @@
+<div class="content" style="align-content: center">
+    <div class="panel-body" style="width: 65%; margin: auto">
+        <gcds-heading tag="h1">GCDS forms with Angular </gcds-heading>
+      <form [formGroup]="gcdsForm" (ngSubmit)="gcdsFormSubmit()">
+        <gcds-input
+          type="text"
+          input-id="boxNumber"
+          label="Box Number"
+          name="labNumber"
+          formControlName="labNumber"
+          required
+          ngDefaultControl
+        ></gcds-input>
+
+        <gcds-select select-id="species" label="Species" name="speciesSelection" 
+            hint="Select your favorite one." required formControlName="species" gcdsChange="changingForm()" ngDefaultControl>
+            <option disabled [ngValue]="null">-- Select One --</option>
+            <option value="Salmon">Salmon</option>
+            <option value="Trout">Trout</option>
+            <option value="Cod">Cod</option>
+            <option value="Carp">Carp</option>
+        </gcds-select>
+
+        <gcds-textarea
+        textarea-id="comment"
+        label="Comment"
+        name="comment"
+        formControlName="comment"
+        required
+        ngDefaultControl>
+        </gcds-textarea>
+
+        <gcds-button type="submit">Submit</gcds-button>
+      </form>
+
+      <gcds-heading tag="h3">Form Values</gcds-heading>
+      <gcds-text style="margin-top: 20px;">Lab Number: {{labNumber}}</gcds-text>
+      <gcds-text style="margin-top: 20px;">Species: {{species}}</gcds-text>
+      <gcds-text style="margin-top: 20px;">Comment: {{comment}}</gcds-text>
+    </div>
+  </div>
+  
